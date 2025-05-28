@@ -7,8 +7,8 @@ import MenuLinks from './MenuLinks';
 
 const Layout = ({ children }) => {
   const { logout } = useContext(AuthContext);
-  const { user } = useContext(AuthContext);
-  useNotifications(user);
+  //const { user } = useContext(AuthContext);
+ // useNotifications(user);
 
 
   return (

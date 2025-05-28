@@ -18,9 +18,9 @@ const Users = () => {
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [users, setUsers] = useState([]);
-  const [notifications, setNotifications] = useState([]);
+ // const [notifications, setNotifications] = useState([]);
 
-  const [unreadCount, setUnreadCount] = useState(0);
+  //const [unreadCount, setUnreadCount] = useState(0);
   const [newUser, setNewUser] = useState({ name: '', email: '', password: '', role: '' });
   const [editUserId, setEditUserId] = useState(null);
   const [filterRole, setFilterRole] = useState('');
@@ -34,7 +34,7 @@ const Users = () => {
     const data = await res.json();
     setUsers(data);
   };
-  const fetchNotifications = async () => {
+ /* const fetchNotifications = async () => {
 
     const res = await fetch('http://localhost:3000/notification/history', {
     
@@ -51,11 +51,11 @@ const Users = () => {
     setUnreadCount(data.filter(n => !n.read).length);
     
     };
-
+*/
   useEffect(() => {
     if (token && user?.role === 'admin') {
       fetchUsers();
-      fetchNotifications();
+     // fetchNotifications();
     }
   }, [token, user]);
 
@@ -127,16 +127,7 @@ const Users = () => {
     <Box p={6}>
       <Flex justifyContent="space-between" alignItems="center">
           <Heading mb={4}>Users</Heading>
-          <Menu>
-            <MenuButton as={IconButton} icon={<FaBell />} position="relative">
-              {unreadCount > 0 && <Badge colorScheme="red" position="absolute" top="0" right="0">{unreadCount}</Badge>}
-            </MenuButton>
-            <MenuList>
-              {notifications.map((note, i) => (
-                <MenuItem key={i}>{note.message}</MenuItem>
-              ))}
-            </MenuList>
-          </Menu>
+          
         </Flex>
 
       <Button onClick={onOpen} colorScheme="teal" mb={4}>Invite User</Button>
