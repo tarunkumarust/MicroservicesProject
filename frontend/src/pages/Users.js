@@ -1,7 +1,7 @@
 // pages/Users.js
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  Box, Button, Heading, Input, Table, Thead, Text, Tbody, Tr, Th, Td,
+  Box, Button, Heading, Input, Table, Thead, Tbody, Tr, Th, Td,
   VStack, useToast, Modal, ModalOverlay, ModalContent, ModalHeader,
   ModalCloseButton, ModalBody, ModalFooter, useDisclosure, Select,
   IconButton, Badge, AlertDialog, AlertDialogOverlay, AlertDialogContent,
@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { AuthContext } from '../auth/AuthContext';
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
-import { FaBell } from 'react-icons/fa';
+//import { FaBell } from 'react-icons/fa';
 
 const Users = () => {
   const { token, user } = useContext(AuthContext);
@@ -34,7 +34,7 @@ const Users = () => {
     const data = await res.json();
     setUsers(data);
   };
-  nst fetchNotifications = async () => {
+  const fetchNotifications = async () => {
 
     const res = await fetch('http://localhost:3000/notification/history', {
     
