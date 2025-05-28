@@ -1,24 +1,23 @@
-// notification.entity.ts
 
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
 
-@Entity('notifications')
+@Entity()
 export class Notification {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
-  userId: string;
-
-  @Column()
-  type: string;
+  userId: number;
 
   @Column()
   message: string;
+
+  @Column({ default: 'info' })
+  type: string;
 
   @Column({ default: false })
   read: boolean;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 }
