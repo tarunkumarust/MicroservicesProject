@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { Notification } from './notification.entity';
 import { NotificationGateway } from './notification.gateway';
 
-@Injectable()
+@Injectable() 
 export class NotificationService {
   constructor(
     @InjectRepository(Notification)
